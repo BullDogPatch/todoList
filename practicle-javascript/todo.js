@@ -6,15 +6,14 @@ var todoList = {
     } else {
       console.log("My Todos:");
       for (var i = 0; i < this.todos.length; i++) {
-        console.log(this.todos[i].todoText);
-
         if (this.todos[i].completed === true) {
           console.log("(x)", this.todos[i].todoText);
         } else {
-          console.log("()", this.todos[i].todoText);
+          console.log("( )", this.todos[i].todoText);
         }
       }
     }
+    //print todos as normal
   },
   addTodo: function(todoText) {
     this.todos.push({
@@ -35,7 +34,27 @@ var todoList = {
     var todo = this.todos[position];
     todo.completed = !todo.completed;
     this.displayTodos();
+  },
+  toggleAll: function() {
+    var totalTodos = this.todos.length;
+    var completedTodos = 0;
+
+    // get number of completed todos
+    for (var i = 0; i < totalTodos; i++) {
+      if (this.todos[i].completed === true) {
+        completedTodos++;
+      }
+    }
+    if (completedTodos === totalTodos) {
+      for (var i = 0; i < totalTodos; i++) {
+        this.todos[i].completed = false;
+      }
+    } else {
+      for (var i = 0; i < totalTodos; i++) {
+        this.todos[i].completed = true;
+      }
+    }
+
+    this.displayTodos();
   }
 };
-
-todoList.displayTodos();
