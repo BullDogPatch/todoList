@@ -1,6 +1,6 @@
 var todoList = {
   todos: [],
-  displayTodos: function() {
+  displayTodos: function () {
     if (this.todos.length === 0) {
       console.log("Your todo list is empty!");
     } else {
@@ -15,27 +15,27 @@ var todoList = {
     }
     //print todos as normal
   },
-  addTodo: function(todoText) {
+  addTodo: function (todoText) {
     this.todos.push({
       todoText: todoText,
       completed: false
     });
     this.displayTodos();
   },
-  changeTodo: function(position, todoText) {
+  changeTodo: function (position, todoText) {
     this.todos[position].todoText = todoText;
     this.displayTodos();
   },
-  deleteTodo: function(position) {
+  deleteTodo: function (position) {
     this.todos.splice(position, 1);
     this.displayTodos();
   },
-  toggleCompleted: function(position) {
+  toggleCompleted: function (position) {
     var todo = this.todos[position];
     todo.completed = !todo.completed;
     this.displayTodos();
   },
-  toggleAll: function() {
+  toggleAll: function () {
     var totalTodos = this.todos.length;
     var completedTodos = 0;
 
@@ -58,3 +58,15 @@ var todoList = {
     this.displayTodos();
   }
 };
+
+const displayTodoButton = document.querySelector('#displayTodosButton');
+const toggleAllButton = document.querySelector('#toggleAllButton');
+
+
+displayTodoButton.addEventListener('click', () => {
+  todoList.displayTodos();
+});
+
+toggleAllButton.addEventListener('click', () => {
+  todoList.toggleAll();
+})
