@@ -59,14 +59,25 @@ var todoList = {
   }
 };
 
-const displayTodoButton = document.querySelector('#displayTodosButton');
-const toggleAllButton = document.querySelector('#toggleAllButton');
+// const displayTodoButton = document.querySelector('#displayTodosButton');
+// const toggleAllButton = document.querySelector('#toggleAllButton');
 
 
-displayTodoButton.addEventListener('click', () => {
-  todoList.displayTodos();
-});
+// displayTodoButton.addEventListener('click', () => {
+//   todoList.displayTodos();
+// });
 
-toggleAllButton.addEventListener('click', () => {
-  todoList.toggleAll();
-})
+// toggleAllButton.addEventListener('click', () => {
+//   todoList.toggleAll();
+// });
+
+
+
+let handlers = {
+  displayTodos: function(){
+    todoList.displayTodos();
+  }, 
+  toggleAll: function(){
+    todoList.toggleAll();
+  }
+};
